@@ -1,0 +1,32 @@
+name:
+    css: '#productTitle'
+    type: Text
+price:
+    css: '#priceblock_ourprice'
+    type: Text
+short_description:
+    css: '#featurebullets_feature_div'
+    type: Text
+images:
+    css: '#landingImage'
+    type: Attribute
+    attribute: src
+rating:
+    css: span.arp-rating-out-of-text
+    type: Text
+variants:
+    css: 'form.a-section li'
+    multiple: true
+    type: Text
+    children:
+        name:
+            css: ""
+            type: Attribute
+            attribute: title
+        asin:
+            css: ""
+            type: Attribute
+            attribute: data-defaultasin
+product_description:
+    css: '#productDescription'
+    type: Text
