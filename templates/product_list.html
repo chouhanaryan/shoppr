@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eCommerce HTML-5 Template </title>
+    <title>shoppr - Snap & Search! </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -27,6 +27,18 @@
 </head>
 
 <body>
+
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <!--<img src="assets/img/logo/logo.png" alt="">-->
+                    <h4>shoppr.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header>
         <!-- Header Start -->
@@ -75,7 +87,9 @@
                             <!-- Logo -->
                             <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                                 <div class="logo">
-                                  <a href="index.html"><img src="static/img/logo/logo.png" alt=""></a>
+                                  <a href="/"><!--<img src="assets/img/newimgs/logo.png">-->
+                                    <img src = "{{ url_for('static', filename='img/newimgs/logo.png') }}" alt= " ">
+                                </a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">

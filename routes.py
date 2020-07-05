@@ -108,7 +108,7 @@ def scrape(url, e):
 	}
 
 	# Download the page using requests
-	print("Downloading %s"%url)
+	# print("Downloading %s"%url)
 	r = requests.get(url, headers=headers)
 	# Simple check to check if page was blocked (Usually 503)
 	if r.status_code > 500:
@@ -171,14 +171,14 @@ def predict():
 
 
 			scraped = scrape(url, e1)
-			print(scraped)
+			# print(scraped)
 			if scraped:
 				for i, product in enumerate(scraped['products']):
 					if i == 5:
 						break
 					i += 1
 					product['search_url'] = url
-					print("Product: %s"%product['title'])
+					# print("Product: %s"%product['title'])
 					prod_list.append(product['title'])
 					prod_list_url.append("https://www.amazon.com"+product['url'])
 
@@ -190,13 +190,16 @@ def predict():
 			final_products = []
 
 			for prod_url in prod_list_url:
-				scraped_fin = scrape(prod_url, e2)				
+				scraped_fin = scrape(prod_url, e2)							
 				if scraped_fin:
+					image = scraped_fin.get('images', 'Not Available')
+					if image:
+						image.strip('\n')
 					final_products.append({
 						'name': scraped_fin.get('name', 'Not Available'),
 						'price': scraped_fin.get('price', 'Not Available'),
 						'short_description': scraped_fin.get('short_description', 'Not Available'),
-						'image': scraped_fin['images'].strip('\n'),
+						'image': image,
 						'url': prod_url
 					})
 
